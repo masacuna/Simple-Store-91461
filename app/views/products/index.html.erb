@@ -2,7 +2,7 @@
 
 <% @products.each do |product| %>
   <section>
-    <h3><%= product.title %></h3>
+    <h3><%= link_to product.title, product %></h3>
     <p><%= product.description %></p>
   </section>
 <% end %>

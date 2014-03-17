@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   # Display a single product
   def show
+    @product = Product.find(params[:id])
   end # Loading: app/views/products/show.html.erb
 
   def new
