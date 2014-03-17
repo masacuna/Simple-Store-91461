@@ -1,6 +1,8 @@
 SimpleStore91461::Application.routes.draw do
   
-  get "products" => "products#index", as: 'products'
+  get "products" => "products#index", as: "products"
+  
+  root 'products#index'
   
   
   # The priority is based upon order of creation: first created -> highest priority.
