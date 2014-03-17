@@ -1,15 +1,13 @@
 SimpleStore91461::Application.routes.draw do
   
-  get "products" => "products#index", as: "products"
-  
-  get "products/new" => "products#new", as: "new_product"
-  
-  get "products/:id" => "products#show", as: "product"
-  
-  post "products" => "products#create"
-  
+  get "products",     to: "products#index", as: "products"
+  get "products/new", to: "products#new",   as: "new_product"
+  get "products/:id", to: "products#show",  as: "product"
+  post "products",    to: "products#create"
   
   root 'products#index'
+  # The root command does the following:
+  # get "/", to: 'products#index', as: 'root'
   
   
   # The priority is based upon order of creation: first created -> highest priority.
