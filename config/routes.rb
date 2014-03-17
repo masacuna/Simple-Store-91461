@@ -2,6 +2,8 @@ SimpleStore91461::Application.routes.draw do
   
   get "products" => "products#index", as: "products"
   
+  get "products/:id" => "products#show", as: "product"
+  
   root 'products#index'
   
   
