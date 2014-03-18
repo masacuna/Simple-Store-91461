@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   # Displaying a form for a new product
   def new
     @product = Product.new
-  end
+  end # Loads: app/views/products/new.html.erb
 
   # Receive new product details POSTed from the 'new' form
   # and create a new product in the database.
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-  end
+  end # Loads app/views/products/edit.html.erb
 
   def update
     @product = Product.find(params[:id])
@@ -41,6 +41,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to action: :index
   end
   
 private
