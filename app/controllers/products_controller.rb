@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   # Receive new product details POSTed from the 'new' form
   # and create a new product in the database.
   def create
-    @product = Product.new(post_params)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to :action => :index
     else
@@ -28,16 +28,23 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(product_params)
+      redirect_to @product
+    else
+      render :edit
+    end
   end
 
   def destroy
   end
   
 private
-  def post_params
+  def product_params
     params.require(:product).permit(:title, :description, :price, :stock_quantity)
   end
 end

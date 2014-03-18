@@ -6,5 +6,7 @@
   <section>
     <h3><%= link_to product.title, product %></h3>
     <p><%= product.description %></p>
+    <p><%= link_to 'edit', edit_product_path(product) %></p>
+    <hr>
   </section>
 <% end %>
