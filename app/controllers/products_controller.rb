@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+   
   end # Loads app/views/products/edit.html.erb
 
   def update
