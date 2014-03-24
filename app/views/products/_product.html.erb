@@ -1,6 +1,11 @@
 <section>
   <h3><%= link_to product.title, product %></h3>
+  <% if product.image_filename.present? %>
+    <p><%= image_tag product.image_filename, height: 200 %></p>
+  <% end %>
   <p><%= product.description %></p>
+  <p><strong>Price:</strong> <%= number_to_currency product.price %></p>
+  <p><strong>In Stock:</strong> <%= number_to_human product.stock_quantity %></p>
   <p>
     <%= link_to 'edit', edit_product_path(product) %> -
     <%= link_to 'delete', destroy_product_path(product), method: :delete, confirm: 'Are you sure you want to delete this product?' %>
